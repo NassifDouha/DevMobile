@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Couleurs de base -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#808080</color>
+
+    <!-- Couleurs personnalisées -->
+    <color name="yellow">#FFD700</color> <!-- Jaune vif -->
+    <color name="orange">#FFA500</color> <!-- Orange -->
+    <color name="red">#FF0000</color> <!-- Rouge -->
+    <color name="green">#008000</color> <!-- Vert -->
+    <color name="blue">#0000FF</color> <!-- Bleu vif -->
+    <color name="light_blue">#87CEEB</color> <!-- Bleu clair -->
+    <color name="purple">#800080</color> <!-- Violet -->
+    <color name="pink">#FFC0CB</color> <!-- Rose -->
+    <color name="gold">#FFD700</color> <!-- Doré -->
+    <color name="silver">#C0C0C0</color> <!-- Argenté -->
+    <color name="beige">#F5F5DC</color> <!-- Code hexadécimal pour le beige -->
+
+
+    <!-- Couleurs pour textes -->
+    <color name="text_primary">#212121</color> <!-- Texte principal (noir foncé) -->
+    <color name="text_secondary">#757575</color> <!-- Texte secondaire (gris) -->
+    <color name="text_highlight">#FFD700</color> <!-- Texte en jaune vif -->
+
+    <!-- Couleurs pour arrière-plans -->
+    <color name="background_light">#FFFFFF</color> <!-- Fond clair -->
+    <color name="background_dark">#121212</color> <!-- Fond sombre -->
+    <color name="background_accent">#FFEB3B</color> <!-- Fond accentué jaune -->
+
+    <!-- Couleurs pour bordures ou séparateurs -->
+    <color name="border_color">#E0E0E0</color> <!-- Gris clair pour bordures -->
+    <color name="divider_color">#BDBDBD</color> <!-- Gris moyen pour séparateurs -->
 </resources>
