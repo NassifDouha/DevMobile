@@ -1,4 +1,4 @@
-package com.example.test1
+package com.example.test1.brut
 
 import android.os.Bundle
 import android.util.Log
@@ -6,8 +6,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.test1.R
 
 import com.example.test1.data.Recipe
 

@@ -1,9 +1,11 @@
-package com.example.test1
+package com.example.test1.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.test1.R
+import com.example.test1.ToutesRecettes
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -17,7 +19,7 @@ class WelcomeActivity : AppCompatActivity() {
         // Ajouter un listener pour le clic du bouton
         startButton.setOnClickListener {
             // Créer une nouvelle intention pour ouvrir SecondActivity
-            val intent = Intent(this, RecipeActivity ::class.java)
+            val intent = Intent(this, ToutesRecettes ::class.java)
 
             // Démarrer la nouvelle activité
             startActivity(intent)

@@ -1,7 +1,8 @@
-package com.example.test1
+package com.example.test1.brut
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.test1.ApiClient
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
