@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.test1.R
-import com.example.test1.ToutesRecettes
 
 class WelcomeActivity : AppCompatActivity() {
 
