@@ -1,6 +1,7 @@
 package com.example.test1.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test1.data.Recipe
@@ -22,6 +23,12 @@ class RecipeAdapter(
         val recipe = recipes[position]
         holder.binding.recipeName.text = recipe.title
         holder.binding.prepTime.text = "Ready in ${recipe.readyInMinutes} mins"
+
+        if (recipe.readyInMinutes != 0){
+            holder.binding.prepTime.text = "Ready in ${recipe.readyInMinutes} mins"
+        } else {
+            holder.binding.prepTime.visibility = View.GONE
+        }
 
         // Load image using Picasso
         Picasso.get().load(recipe.image).into(holder.binding.recipeImage)

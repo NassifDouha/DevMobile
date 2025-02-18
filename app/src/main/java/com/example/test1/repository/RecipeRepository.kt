@@ -1,7 +1,9 @@
 package com.example.test1.repository
 
+import android.util.Log
 import com.example.test1.data.Recipe
 import com.example.test1.data.RecipeDetails
+import com.example.test1.data.RecipeList
 import com.example.test1.iservice.RecipeApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -22,7 +24,7 @@ class RecipeRepository {
         return try {
             api.getRandomRecipes(apiKey, number).recipes
         } catch (e: Exception) {
-            e.printStackTrace()
+            Log.e("API_ERROR", "Error fetching recipes: ${e.message}")
             emptyList()
         }
     }
@@ -33,6 +35,16 @@ class RecipeRepository {
         } catch (e: Exception) {
             e.printStackTrace()
             null
+        }
+    }
+
+    // Function to search recipes by ingredients
+    suspend fun searchRecipesByIngredients(apiKey: String, ingredients: String, number: Int): List<Recipe> {
+        return try {
+            api.searchRecipesByIngredients(apiKey = apiKey, ingredients = ingredients, number = number)
+        } catch (e: Exception) {
+            Log.d("API_ERROR", "Error fetching recipes: ${e.message}")
+            emptyList()
         }
     }
 }
