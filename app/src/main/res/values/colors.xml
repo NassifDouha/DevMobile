@@ -32,4 +32,11 @@
     <!-- Couleurs pour bordures ou séparateurs -->
     <color name="border_color">#E0E0E0</color> <!-- Gris clair pour bordures -->
     <color name="divider_color">#BDBDBD</color> <!-- Gris moyen pour séparateurs -->
+
+
+    <color name="md_theme_outline">#79747E</color>
+    <color name="md_theme_outlineVariant">#CAC4D0</color>
+
+    <color name="md_theme_primaryContainer">#EADDFF</color>
+    <color name="md_theme_onPrimaryContainer">#21005D</color>
 </resources>

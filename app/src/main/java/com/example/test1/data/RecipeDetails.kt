@@ -5,8 +5,7 @@ data class RecipeDetails(
     val title: String,
     val image: String,
     val readyInMinutes: Int,
-    val preparationMinutes: Int,
-    val cookingMinutes: Int,
+    val healthScore: Double,
     val servings: Int,
     val extendedIngredients: List<Ingredient>,
     val sourceUrl: String

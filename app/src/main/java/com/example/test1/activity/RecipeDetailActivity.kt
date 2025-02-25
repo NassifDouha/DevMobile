@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.test1.adapter.IngredientsAdapter
 import com.example.test1.data.RecipeDetails
 import com.example.test1.databinding.ActivityRecipeDetailBinding
 import com.example.test1.repository.RecipeRepository
@@ -16,6 +18,7 @@ class RecipeDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecipeDetailBinding
     private val repository = RecipeRepository()
     private val apiKey = "78e80a67aed940ec8decc16468b5b38d"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecipeDetailBinding.inflate(layoutInflater)
@@ -31,12 +34,10 @@ class RecipeDetailActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        // Set up the toolbar with a back button
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Recipe Details"
 
-        // Handle the back button click
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
@@ -52,25 +53,29 @@ class RecipeDetailActivity : AppCompatActivity() {
     }
 
     private fun displayRecipeDetails(recipeDetails: RecipeDetails) {
-        binding.recipeTitle.text = recipeDetails.title
-        binding.recipeServings.text = "Servings: ${recipeDetails.servings}"
-        binding.recipeReadyIn.text = "Ready in ${recipeDetails.readyInMinutes} mins"
-//        binding.recipeSourceUrl.text = recipeDetails.sourceUrl
-
-        // Display ingredients
-        val ingredientsText = recipeDetails.extendedIngredients.joinToString("\n") {
-            "${it.amount} ${it.unit} ${it.name}"
-        }
-        binding.recipeIngredients.text = ingredientsText
+        // Set text values
+        binding.collapsingToolbar.title = recipeDetails.title
+        binding.healthScore.text = "${recipeDetails.healthScore}"
+        binding.totalTime.text = "${recipeDetails.readyInMinutes} min"
+        binding.servingsCount.text = recipeDetails.servings.toString()
 
         // Load image using Picasso
         Picasso.get().load(recipeDetails.image).into(binding.recipeImage)
 
-        // Set sourceUrl as a clickable link
-        binding.recipeSourceUrl.text = recipeDetails.sourceUrl
-        binding.recipeSourceUrl.setOnClickListener {
+        // Set source URL as a clickable link
+        binding.sourceButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(recipeDetails.sourceUrl))
             startActivity(intent)
+        }
+
+        // Populate ingredients RecyclerView
+        val adapter = IngredientsAdapter(recipeDetails.extendedIngredients)
+        binding.ingredientsRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.ingredientsRecyclerView.adapter = adapter
+
+        // Handle favorite button
+        binding.fabFavorite.setOnClickListener {
+            // Toggle favorite state (implement logic)
         }
     }
 }
